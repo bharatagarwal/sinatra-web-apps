@@ -1,0 +1,10 @@
+<b>email:&nbsp;</b>
+<%= @data[@current_user.to_sym][:email] %><br>
+
+<b>interests:&nbsp;</b>
+<%= @data[@current_user.to_sym][:interests].join(', ') %><br>
+
+<% remaining_users = @users - [@current_user] %>
+<% remaining_users.shuffle.each do |user| %>
+  <a href=<%= user %>><%= user %></a><b>&nbsp;&nbsp;</b>
+<% end %>
